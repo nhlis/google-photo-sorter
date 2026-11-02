@@ -1,0 +1,41 @@
+{
+    "name": "Google Photos Sorter By Name (Chrome Edition)",
+    "version": "1.2",
+    "manifest_version": 3,
+    "minimum_chrome_version": "109",
+    "description": "Sort album by name for Google photos directly on the page.",
+    "icons": {
+        "16": "i16.png",
+        "48": "i48.png",
+        "128": "i128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://photos.google.com/*"
+            ],
+            "js": [
+                "lib/rq.js",
+                "lib/numRep.js",
+                "lib/Store.js",
+                "lib/Gui.js",
+                "lib/Album.js",
+                "lib/Sorter.js",
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "i16.png",
+            "48": "i48.png",
+            "128": "i128.png"
+        },
+        "default_title": "GPhotos Sorter"
+    },
+    "permissions": [
+        "storage"
+    ]
+}
